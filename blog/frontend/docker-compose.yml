@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  blog-frontend:
+    build: .
+    ports:
+      - "3002:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - blog-docker-db_default
+    restart: unless-stopped
+
+networks:
+  blog-docker-db_default:
+    external: true
